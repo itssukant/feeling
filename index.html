@@ -1,0 +1,112 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>How Do You Feel Today?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .emoji-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .emoji {
+      font-size: 40px;
+      cursor: pointer;
+      padding: 10px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .emoji:hover {
+      transform: scale(1.1);
+    }
+    input[type="text"]{
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #9f9c9c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"] + label {
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    input[type="radio"]:checked + label {
+      border-color: #333;
+    }
+
+    input[type="submit"] {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <form action="https://script.google.com/a/macros/jsw.in/s/AKfycbx2kYqnrfPhLsi9l4VXLWFuxOemoI8GrFTesLnEnFcufpbKZ_iG0MVgVCN07g9z2gsmjA/exec" method="post" name="Felling" id="Feeling">
+    <h1>What's Your Name? </h1>
+    <input type="text" id="name" name="name" value="Enter your Name here">
+         <br>
+  <h1>How Do You Feel Today?</h1>
+    <div class="emoji-container">
+      <input type="radio" id="happy" name="feeling" value="happy">
+      <label class="emoji" for="happy">😄</label>
+
+      <input type="radio" id="sad" name="feeling" value="sad">
+      <label class="emoji" for="sad">😔</label>
+
+      <input type="radio" id="angry" name="feeling" value="angry">
+      <label class="emoji" for="angry">😡</label>
+
+      <input type="radio" id="excited" name="feeling" value="excited">
+      <label class="emoji" for="excited">😃</label>
+    </div>
+
+    <input type="submit" value="Submit">
+  </form>
+   <script>
+        const scriptURL = 'https://script.google.com/a/macros/jsw.in/s/AKfycbx2kYqnrfPhLsi9l4VXLWFuxOemoI8GrFTesLnEnFcufpbKZ_iG0MVgVCN07g9z2gsmjA/exec'
+        const form = document.forms['product']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
